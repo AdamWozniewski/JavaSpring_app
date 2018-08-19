@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http:// http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="com.clockworkjava.JavaSpring_app"/>
+    <context:property-placeholder location="classpath:castle.properties"/>
+
+    <import resource="classpath:config/castle-config.xml"></import>
+
+    <!--<bean id="quest" scope="prototype" class="com.clockworkjava.JavaSpring_app.domain.Quest"/>-->
+
+    <bean
+            id="lancelot"
+            primary="true"
+            class="com.clockworkjava.JavaSpring_app.domain.Knight"
+            scope="prototype"
+    >
+        <constructor-arg index="0" value="Lancelot"/>
+        <constructor-arg index="1" value="29"/>
+    </bean>
+    <bean id="percival" class="com.clockworkjava.JavaSpring_app.domain.Knight" scope="prototype">
+        <constructor-arg index="0" value="Percival"/>
+        <constructor-arg index="1" value="29"/>
+    </bean>
+
+</beans>

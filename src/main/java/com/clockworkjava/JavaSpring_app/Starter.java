@@ -1,18 +1,33 @@
 package com.clockworkjava.JavaSpring_app;
 
-import com.clockworkjava.JavaSpring_app.domain.Knight;
-import com.clockworkjava.JavaSpring_app.domain.Quest;
+import com.clockworkjava.JavaSpring_app.domain.repositories.CastleKnightRepository;
+import com.clockworkjava.JavaSpring_app.domain.repositories.QuestsRepository;
+import com.clockworkjava.JavaSpring_app.services.QuestService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
+@Scope("singleton")
 public class Starter implements CommandLineRunner {
+
+    @Autowired
+    CastleKnightRepository castleKnightRepository; // Zależnosc na klasę Castle, wstrzykiwanie zaleznosci, dzięki temu można go używać w starterze
+
+    @Autowired
+    QuestsRepository questsRepository;
+
+    @Autowired
+    QuestService questService;
+
     @Override
     public void run(String... args) throws Exception {
-        Knight lancelot = new Knight("Lancelot", 100, new Quest("ratuj siurze"));
 
-        System.out.println(lancelot.toString());
+        this.questService.assignRandomQuest("lancelot");
+        this.questService.assignRandomQuest("percival");
 
-        Knight percival = new Knight("Percival", 29, new Quest("Zasiukaj smoka"));
+        System.out.println(this.castleKnightRepository.toString());
+
     }
 }

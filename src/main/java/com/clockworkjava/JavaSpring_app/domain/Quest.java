@@ -9,6 +9,6 @@ public class Quest {
 
     @Override
     public String toString() {
-        return this.desc + " CHUJ";
+        return this.desc;
     }
 }
