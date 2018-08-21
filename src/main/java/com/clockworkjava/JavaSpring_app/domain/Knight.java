@@ -7,11 +7,6 @@ public class Knight {
     private int age;
     private Quest quest;
 
-    public Knight() {
-        this.name = "Lancelot";
-        this.age = 29;
-    }
-
     public Knight(String name, int age) {
         this.name = name;
         this.age = age;
@@ -32,7 +27,7 @@ public class Knight {
         return Objects.hash(name, age, quest);
     }
 
-    public void setQuest(Quest quest) { // wstrzykiwanie porzez metode
+    public void setQuest(Quest quest) {
         this.quest = quest;
     }
     public void setAge(int age) {

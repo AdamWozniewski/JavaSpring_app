@@ -2,8 +2,11 @@ package com.clockworkjava.JavaSpring_app.services;
 
 import com.clockworkjava.JavaSpring_app.domain.Quest;
 import com.clockworkjava.JavaSpring_app.domain.repositories.CastleKnightRepository;
+import com.clockworkjava.JavaSpring_app.domain.repositories.CastleKnightRepositoryInterface;
 import com.clockworkjava.JavaSpring_app.domain.repositories.QuestsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,7 +16,7 @@ import java.util.Random;
 public class QuestService {
 
     @Autowired
-    CastleKnightRepository castleKnightRepository;
+    CastleKnightRepositoryInterface castleKnightRepository;
 
     @Autowired
     QuestsRepository questsRepository;

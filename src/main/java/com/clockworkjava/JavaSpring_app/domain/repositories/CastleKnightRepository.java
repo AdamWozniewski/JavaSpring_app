@@ -9,28 +9,33 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Repository
-public class CastleKnightRepository {
+public class CastleKnightRepository implements CastleKnightRepositoryInterface {
 
     Map<String, Knight> knights = new HashMap<>();
 
     public CastleKnightRepository() {}
 
+    @Override
     public void createKnights(String name, int age) {
-        knights.put(name, new Knight(name, age));
+        this.knights.put(name, new Knight(name, age));
     }
 
-    public Collection<Knight> getAllKnights () {
+    @Override
+    public Collection<Knight> getAllKnights() {
         return this.knights.values();
     }
 
-    public Knight getKnight (String name) {
-        return knights.get(name);
+    @Override
+    public Knight getKnight(String name) {
+        return this.knights.get(name);
     }
 
-    public void removeKnight (String name) {
-        knights.remove(name);
+    @Override
+    public void removeKnight(String name) {
+        this.knights.remove(name);
     }
 
+    @Override
     @PostConstruct
     public void build() {
         this.createKnights("lancelot", 29);
