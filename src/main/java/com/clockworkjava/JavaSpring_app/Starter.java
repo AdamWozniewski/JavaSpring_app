@@ -29,14 +29,14 @@ public class Starter implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        this.questsRepository.createRandomQuest();
-        this.questsRepository.createRandomQuest();
-        this.questsRepository.createRandomQuest();
+//        this.questsRepository.createRandomQuest();
+//        this.questsRepository.createRandomQuest();
+//        this.questsRepository.createRandomQuest();
 
-        this.questService.assignRandomQuest("lancelot");
-        this.questService.assignRandomQuest("percival");
+//        this.questService.assignRandomQuest("lancelot");
+//        this.questService.assignRandomQuest("percival");
 
-        System.out.println(this.castleKnightRepository.toString());
+//        System.out.println(this.castleKnightRepository.toString());
 
     }
 

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.1.3/css/bootstrap.min.css}">
+    <script th:src="@{/webjars/jquery/3.2.1/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/4.1.3/bootstrap.min.js}"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Rycerze</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Imie</th>
+                    <th>Wiek</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="oneKnight : ${knightsATR}">
+                    <td th:text="${oneKnight.getName()}" />
+                    <td th:text="${oneKnight.getAge()}" />
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

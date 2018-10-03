@@ -14,7 +14,7 @@ import java.util.Random;
 @Scope("singleton")
 public class QuestsRepository {
 
-    Random random ;
+    Random random =  new Random();
     List<Quest> quests = new ArrayList<>();
 
     public void addQuest(String desc) {
@@ -28,8 +28,6 @@ public class QuestsRepository {
     }
 
     @Scheduled(fixedDelayString = "${questCreationDelay:5000}")
-//    @Scheduled(fixedDelay = 1000, initialDelay = 3000)
-//    @Scheduled(fixedRate = 1000) // od momentu uruchomienia metody
     public void createRandomQuest() {
         List<String> desc = new ArrayList<>();
 
