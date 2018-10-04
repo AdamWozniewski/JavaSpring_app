@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.1.3/css/bootstrap.min.css}">
+    <script th:src="@{/webjars/jquery/3.2.1/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/4.1.3/bootstrap.min.js}"></script>
+</head>
+<body>
+    <h1>Rycerz: <p th:text="${selectedKnight.getName()}"/></h1>
+    <h3>wiek: <p th:text="${selectedKnight.getAge()}"/></h3>
+    <h5>poziom: <p th:text="${selectedKnight.getLevel()}"/></h5>
+</body>
+</html>

@@ -16,6 +16,13 @@ public class KnightService {
     CastleKnightRepository castleKnightRepository;
     public List<Knight> getAllKnights() { // pobieranie rycerzy
         return new ArrayList<>(this.castleKnightRepository.getAllKnights());
+    }
 
+    public void saveKnight(Knight knight) {
+        this.castleKnightRepository.saveKnight(knight);
+    }
+
+    public Knight getKnightService(Integer id) {
+        return this.castleKnightRepository.getKnightById(id);
     }
 }

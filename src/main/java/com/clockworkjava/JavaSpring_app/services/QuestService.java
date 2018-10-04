@@ -27,6 +27,6 @@ public class QuestService {
         List<Quest> allQuests = this.questsRepository.getQuests();
         Quest randomQuest = allQuests.get(random.nextInt(allQuests.size()));
         this.questsRepository.deleteQuest(randomQuest);
-        this.castleKnightRepository.getKnight(knightName).setQuest(randomQuest);
+        this.castleKnightRepository.getKnight(knightName).ifPresent(knight -> knight.setQuest(randomQuest));
     }
 }

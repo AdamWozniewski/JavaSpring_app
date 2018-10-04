@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.1.3/css/bootstrap.min.css}">
+    <script th:src="@{/webjars/jquery/3.2.1/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/4.1.3/bootstrap.min.js}"></script>
+</head>
+<body>
+
+    <div class="container">
+        <form
+            class="form-horizontal"
+            th:object="${objectKnight}"
+            th:action="@{/createdKnights}"
+            th:method="post"
+        > <!-- Tu zapisujemy dame do kontrolera -->
+            <div class="form-group">
+                <label class="control-label">Imie</label>
+                <input type="text" class="form-control" th:field="*{name}">
+            </div>
+            <div class="form-group">
+                <label class="control-label">Wiek</label>
+                <input type="number" class="form-control" th:field="*{age}">
+            </div>
+            <button class="btn btn-primary" type="submit">Wyslij</button>
+        </form>
+    </div>
+</body>
+</html>

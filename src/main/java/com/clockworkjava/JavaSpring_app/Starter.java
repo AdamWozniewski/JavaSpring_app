@@ -37,7 +37,6 @@ public class Starter implements CommandLineRunner {
 //        this.questService.assignRandomQuest("percival");
 
 //        System.out.println(this.castleKnightRepository.toString());
-
     }
 
 

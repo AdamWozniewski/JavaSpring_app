@@ -17,15 +17,22 @@ xmlns:th="http://www.thymeleaf.org">
                 <tr>
                     <th>Imie</th>
                     <th>Wiek</th>
+                    <th>id</th>
+                    <th>Link</th>
                 </tr>
             </thead>
             <tbody>
                 <tr th:each="oneKnight : ${knightsATR}">
                     <td th:text="${oneKnight.getName()}" />
                     <td th:text="${oneKnight.getAge()}" />
+                    <td th:text="${oneKnight.getId()}" />
+                    <td>
+                        <a th:href="${'/oneKnight?id='+oneKnight.id}">Link do rycerza</a>
+                    </td>
                 </tr>
             </tbody>
         </table>
+        <a href="/newKnight">Nowy rycerz</a>
     </div>
 </body>
 </html>

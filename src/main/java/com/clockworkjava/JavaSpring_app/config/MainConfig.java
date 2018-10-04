@@ -15,10 +15,10 @@ public class MainConfig {
         return repo;
     }
 
-    @Bean(name = "dbrepository")
-    @Profile("prod")
-    public CastleKnightRepositoryInterface createDBRepo() {
-        CastleKnightRepositoryInterface repo = new DBKnightRepository();
-        return repo;
-    }
+//    @Bean(name = "dbrepository")
+//    @Profile("prod")
+//    public CastleKnightRepositoryInterface createDBRepo() {
+//        CastleKnightRepositoryInterface repo = new DBKnightRepository();
+//        return repo;
+//    }
 }
