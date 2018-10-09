@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 @Service
 public class QuestService {
@@ -28,5 +29,17 @@ public class QuestService {
         Quest randomQuest = allQuests.get(random.nextInt(allQuests.size()));
         this.questsRepository.deleteQuest(randomQuest);
         this.castleKnightRepository.getKnight(knightName).ifPresent(knight -> knight.setQuest(randomQuest));
+    }
+
+    public List<Quest> getAllNotStartedQuests() {
+        return this.questsRepository.getQuests().stream().filter(quest -> !quest.isStarted()).collect(Collectors.toList());
+    }
+
+    public void update(Quest quest) {
+        this.questsRepository.update(quest);
+    }
+
+    public boolean isQuestComplieted(Quest quest) {
+        return quest.isFinished();
     }
 }

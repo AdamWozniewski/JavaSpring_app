@@ -1,6 +1,7 @@
 package com.clockworkjava.JavaSpring_app.domain.repositories;
 
 import com.clockworkjava.JavaSpring_app.domain.Knight;
+import com.clockworkjava.JavaSpring_app.utils.Ids;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
@@ -16,23 +17,13 @@ public class CastleKnightRepository implements CastleKnightRepositoryInterface {
     @Override
     public void createKnights(String name, int age) {
         Knight knight = new Knight(name, age);
-        knight.setId(this.getNewId());
+        knight.setId(Ids.getNewId(this.knights.keySet()));
         this.knights.put(knight.getId(), knight);
     }
 
     @Override
     public Collection<Knight> getAllKnights() {
         return this.knights.values();
-    }
-
-    public int getNewId() {
-        if (this.knights.isEmpty()) {
-            return 0;
-        }
-        else {
-            Integer integer = this.knights.keySet().stream().max(Integer::max).get();
-            return integer + 1;
-        }
     }
 
     @Override
@@ -71,7 +62,13 @@ public class CastleKnightRepository implements CastleKnightRepositoryInterface {
 
     @Override
     public void saveKnight(Knight knight) {
-        this.knights.put(knight.getId(), knight);
+//        this.knights.put(knight.getId(), knight);
+        this.createKnights(knight.getName(), knight.getAge());
+    }
+
+    @Override
+    public void updateKnight(int id, Knight knight) {
+        this.knights.put(id, knight);
     }
 }
 

@@ -30,11 +30,11 @@ public class Starter implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
 //        this.questsRepository.createRandomQuest();
-//        this.questsRepository.createRandomQuest();
-//        this.questsRepository.createRandomQuest();
+        this.questsRepository.createRandomQuest();
+        this.questsRepository.createRandomQuest();
 
 //        this.questService.assignRandomQuest("lancelot");
-//        this.questService.assignRandomQuest("percival");
+        this.questService.assignRandomQuest("percival");
 
 //        System.out.println(this.castleKnightRepository.toString());
     }

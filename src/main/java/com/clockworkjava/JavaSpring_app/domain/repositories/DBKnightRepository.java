@@ -8,7 +8,7 @@ import java.util.Optional;
 
 
 @Repository
-public class DBKnightRepository implements CastleKnightRepositoryInterface {
+public class DBKnightRepository {
 
     public void createKnights(String name, int age) {
         System.out.println("używam bazy danych");
@@ -19,13 +19,13 @@ public class DBKnightRepository implements CastleKnightRepositoryInterface {
         return null;
     }
 
-    @Override
+
     public Optional<Knight> getKnight(String name) {
         System.out.println("używam bazy danych");
         return null;
     }
 
-    @Override
+
     public void removeKnight(int id) {
 
     }
@@ -34,7 +34,7 @@ public class DBKnightRepository implements CastleKnightRepositoryInterface {
         System.out.println("używam bazy danych");
     }
 
-    @Override
+
     public void saveKnight(Knight knight) {
     }
 
@@ -42,7 +42,7 @@ public class DBKnightRepository implements CastleKnightRepositoryInterface {
         System.out.println("używam bazy danych");
     }
 
-    @Override
+
     public Knight getKnightById(int id) {
         return null;
     }

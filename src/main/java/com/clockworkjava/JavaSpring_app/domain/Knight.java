@@ -31,6 +31,10 @@ public class Knight {
         this.level = 0;
     }
 
+    public Quest getQuest() {
+        return quest;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -47,6 +51,7 @@ public class Knight {
     }
 
     public void setQuest(Quest quest) {
+//        this.quest.setStarted(true);
         this.quest = quest;
     }
     public void setAge(int age) {
