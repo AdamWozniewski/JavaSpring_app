@@ -2,10 +2,12 @@ package com.clockworkjava.JavaSpring_app.domain;
 
 import org.hibernate.validator.constraints.Range;
 
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Objects;
 
+@Entity
 public class Knight {
 
 //    @Min(2)
@@ -18,8 +20,13 @@ public class Knight {
     @Range(min = 18, max = 60, message = "musi miec min 18 a max 60 lat")
     private int age;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private int level;
+
+//    @Embedded // ścisle powiazanie
+    @OneToOne
     private Quest quest;
 
     public Knight() {
@@ -51,19 +58,16 @@ public class Knight {
     }
 
     public void setQuest(Quest quest) {
-//        this.quest.setStarted(true);
+        if (this.quest != null) {
+            this.quest.setStarted(true);
+        }
         this.quest = quest;
-    }
-    public void setAge(int age) {
-        this.age = age;
-    }
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getName() {
         return this.name;
     }
+
     public int getAge() {
         return this.age;
     }
@@ -78,10 +82,6 @@ public class Knight {
 
     public int getLevel() {
         return level;
-    }
-
-    public void setLevel(int level) {
-        this.level = level;
     }
 
     @Override

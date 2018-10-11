@@ -1,18 +1,31 @@
 package com.clockworkjava.JavaSpring_app.domain;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@Entity
+//@Table(name = "Zadania") // zmiana nazwy tabeli
 public class Quest {
+
+    @Column(name = "opis") // zmiana nazwy kolumby
     private String desc;
     private int reward = 100;
+
+//    @Transient // pomijanie tej wartosci w bazie
     private int length = 30;
+
     private boolean started = false;
     private boolean finished = false;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+    public Quest() { }
+
     private LocalDateTime startDate;
-    public Quest(int id, String desc) {
-        this.id = id;
+    public Quest(String desc) {
+//        this.id = id;
         this.desc = desc;
     }
 
@@ -24,24 +37,12 @@ public class Quest {
         this.reward = reward;
     }
 
-    public int getLength() {
-        return length;
-    }
-
-    public void setLength(int length) {
-        this.length = length;
-    }
-
     public boolean isStarted() {
         return started;
     }
 
     public String getDesc() {
         return desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
     }
 
     @Override
