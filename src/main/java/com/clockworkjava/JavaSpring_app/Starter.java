@@ -1,11 +1,9 @@
 package com.clockworkjava.JavaSpring_app;
 
 import com.clockworkjava.JavaSpring_app.components.PlayerInformation;
-import com.clockworkjava.JavaSpring_app.domain.repositories.CastleKnightRepository;
-import com.clockworkjava.JavaSpring_app.domain.repositories.CastleKnightRepositoryInterface;
-import com.clockworkjava.JavaSpring_app.domain.repositories.PlayerInformationRepository;
-import com.clockworkjava.JavaSpring_app.domain.repositories.QuestsRepository;
+import com.clockworkjava.JavaSpring_app.domain.repositories.*;
 import com.clockworkjava.JavaSpring_app.services.QuestService;
+import com.clockworkjava.JavaSpring_app.utils.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Scope;
@@ -30,6 +28,9 @@ public class Starter implements CommandLineRunner {
     @Autowired
     PlayerInformationRepository playerInformationRepository;
 
+    @Autowired
+    RoleRepository roleRepository;
+
     @Override
     @Transactional
     public void run(String... args) throws Exception {
@@ -41,7 +42,10 @@ public class Starter implements CommandLineRunner {
 //        this.questService.assignRandomQuest("lancelot");
         this.questService.assignRandomQuest("percival");
 
-        this.playerInformationRepository.createPlayerInformation(new PlayerInformation());
+        this.playerInformationRepository.createPlayerInformation(new PlayerInformation("user1", "user1"));
+
+        Role user1 = new Role("user1", "USER");
+        this.roleRepository.persistRole(user1);
     }
 
 

@@ -49,6 +49,11 @@ xmlns:th="http://www.thymeleaf.org">
             </tbody>
         </table>
         <a href="/newKnight">Nowy rycerz</a>
+        <div class="row">
+            <form action="#" th:action="@{/logout}" method="post">
+                <input type="submit" value="wyloguj">
+            </form>
+        </div>
     </div>
 </body>
 </html>

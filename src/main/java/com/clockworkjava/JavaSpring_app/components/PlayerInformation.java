@@ -16,6 +16,17 @@ public class PlayerInformation {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+    private String username;
+    private String password;
+    private boolean enabled;
+
+    public PlayerInformation(String username, String password) {
+        this.username = username;
+        this.password = password;
+        this.enabled = true;
+    }
+
     public PlayerInformation() {
 
     }
